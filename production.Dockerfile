@@ -38,13 +38,8 @@ ARG ROOT_URL
 COPY --from=builder /app/lerna.json /app/package.json /app/yarn.lock /app/
 COPY --from=builder /app/@app/config/ /app/@app/config/
 COPY --from=builder /app/@app/db/ /app/@app/db/
-COPY --from=builder /app/@app/graphql/ /app/@app/graphql/
-COPY --from=builder /app/@app/components/package.json /app/@app/components/
-COPY --from=builder /app/@app/components/dist/ /app/@app/components/dist/
 COPY --from=builder /app/@app/client/package.json /app/@app/client/package.json
 COPY --from=builder /app/@app/client/assets/ /app/@app/client/assets/
-COPY --from=builder /app/@app/client/src/next.config.js /app/@app/client/src/next.config.js
-COPY --from=builder /app/@app/client/.next /app/@app/client/.next
 COPY --from=builder /app/@app/server/package.json /app/@app/server/
 COPY --from=builder /app/@app/server/postgraphile.tags.jsonc /app/@app/server/
 COPY --from=builder /app/@app/server/dist/ /app/@app/server/dist/
