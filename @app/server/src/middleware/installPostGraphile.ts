@@ -2,7 +2,6 @@ import PgSimplifyInflectorPlugin from "@graphile-contrib/pg-simplify-inflector";
 import PgPubsub from "@graphile/pg-pubsub";
 import GraphilePro from "@graphile/pro"; // Requires license key
 import { Express, Request, Response } from "express";
-import { NodePlugin } from "graphile-build";
 import { resolve } from "path";
 import { Pool, PoolClient } from "pg";
 import {
@@ -92,8 +91,11 @@ export function getPostGraphileOptions({
     subscriptions: true,
     websocketMiddlewares,
 
+    // Enable globally unique IDs as the primary `id`
+    classicIds: true,
+
     // enableQueryBatching: On the client side, use something like apollo-link-batch-http to make use of this
-    enableQueryBatching: true,
+    enableQueryBatching: false,
 
     // dynamicJson: instead of inputting/outputting JSON as strings, input/output raw JSON objects
     dynamicJson: true,
@@ -102,7 +104,7 @@ export function getPostGraphileOptions({
     ignoreRBAC: false,
 
     // ignoreIndexes=false: honour your DB indexes - only expose things that are fast
-    ignoreIndexes: false,
+    ignoreIndexes: true,
 
     // setofFunctionsContainNulls=false: reduces the number of nulls in your schema
     setofFunctionsContainNulls: false,
@@ -183,14 +185,6 @@ export function getPostGraphileOptions({
 
       // Adds custom orders to our GraphQL schema
       OrdersPlugin,
-    ],
-
-    /*
-     * Plugins we don't want in our schema
-     */
-    skipPlugins: [
-      // Disable the 'Node' interface
-      NodePlugin,
     ],
 
     graphileBuildOptions: {
