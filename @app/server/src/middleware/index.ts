@@ -9,7 +9,6 @@ import installPostGraphile from "./installPostGraphile";
 import installSameOrigin from "./installSameOrigin";
 import installSession from "./installSession";
 import installSharedStatic from "./installSharedStatic";
-import installSSR from "./installSSR";
 import installWorkerUtils from "./installWorkerUtils";
 
 export {
@@ -22,7 +21,6 @@ export {
   installSharedStatic,
   installPostGraphile,
   installSameOrigin,
-  installSSR,
   installErrorHandler,
   installCypressServerCommand,
   installHelmet,

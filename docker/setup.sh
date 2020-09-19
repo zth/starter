@@ -31,9 +31,6 @@ if [ "$1" = "dev" ]; then
   apt-get -y install --no-install-recommends neovim tmux locales dos2unix
 fi
 
-# Install eslint globally
-yarn global add eslint
-
 # Install docker and docker-compose (for setup)
 curl https://get.docker.com/builds/Linux/x86_64/docker-latest.tgz | tar xvz -C /tmp/ && mv /tmp/docker/docker /usr/bin/docker
 curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
