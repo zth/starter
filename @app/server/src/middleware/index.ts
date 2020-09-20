@@ -1,5 +1,4 @@
 import installCSRFProtection from "./installCSRFProtection";
-import installCypressServerCommand from "./installCypressServerCommand";
 import installDatabasePools from "./installDatabasePools";
 import installErrorHandler from "./installErrorHandler";
 import installHelmet from "./installHelmet";
@@ -22,6 +21,5 @@ export {
   installPostGraphile,
   installSameOrigin,
   installErrorHandler,
-  installCypressServerCommand,
   installHelmet,
 };

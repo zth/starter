@@ -23,7 +23,6 @@
     "--shortcuts to run commands in workspaces--": "",
     "client": "yarn workspace @app/client",
     "db": "yarn workspace @app/db",
-    "e2e": "yarn workspace @app/e2e",
     "server": "yarn workspace @app/server",
     "worker": "yarn workspace @app/worker",
     "docker": "yarn --cwd ./docker",
@@ -67,9 +66,6 @@
     "packages": [
       "@app/*",
       "docker"
-    ],
-    "nohoist": [
-      "**/cypress"
     ]
   },
   "prettier": {
