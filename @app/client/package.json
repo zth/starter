@@ -3,8 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "build": "cd src && node -r @app/config/env ../node_modules/.bin/next build",
-    "test": "NODE_ENV=test node -r @app/config/env ./node_modules/.bin/jest"
+    "build": "cd src && npx --no-install -n \"-r @app/config/env\" next build",
+    "test": "cross-env NODE_ENV=test npx --no-install -n \"-r @app/config/env\" jest"
   },
   "dependencies": {
     "@app/config": "0.0.0",

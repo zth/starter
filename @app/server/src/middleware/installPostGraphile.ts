@@ -40,7 +40,7 @@ type UUID = string;
 
 const isTest = process.env.NODE_ENV === "test";
 
-function uuidOrNull(input: string | number | null): UUID | null {
+function uuidOrNull(input: string | number | null | undefined): UUID | null {
   if (!input) return null;
   const str = String(input);
   if (
@@ -212,7 +212,7 @@ export function getPostGraphileOptions({
      * whether or not you're using JWTs.
      */
     async pgSettings(req) {
-      const sessionId = req.user && uuidOrNull(req.user.session_id);
+      const sessionId = uuidOrNull(req.user?.session_id);
       if (sessionId) {
         // Update the last_active timestamp (but only do it at most once every 15 seconds to avoid too much churn).
         await rootPgPool.query(
@@ -244,7 +244,7 @@ export function getPostGraphileOptions({
     ): Promise<Partial<OurGraphQLContext>> {
       return {
         // The current session id
-        sessionId: req.user && uuidOrNull(req.user.session_id),
+        sessionId: uuidOrNull(req.user?.session_id),
 
         // Needed so passport can write to the database
         rootPgPool,

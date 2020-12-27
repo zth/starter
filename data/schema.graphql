@@ -375,9 +375,7 @@ The root mutation type which contains root level fields which mutate data.
 """
 type Mutation {
   """
-  If someone invited you by your email address then you must include the code
-  that was emailed to you, otherwise you may accept the invitation directly
-  using the UUID. If successful, you will be a member of the organization.
+  If someone invited you by your email address then you must include the code that was emailed to you, otherwise you may accept the invitation directly using the UUID. If successful, you will be a member of the organization.
   """
   acceptInvitationToOrganization(
     """
@@ -395,9 +393,7 @@ type Mutation {
   ): ChangePasswordPayload
 
   """
-  If you're certain you want to delete your account, use
-  `requestAccountDeletion` to request an account deletion token, and then supply
-  the token through this mutation to complete account deletion.
+  If you're certain you want to delete your account, use `requestAccountDeletion` to request an account deletion token, and then supply the token through this mutation to complete account deletion.
   """
   confirmAccountDeletion(
     """
@@ -407,10 +403,7 @@ type Mutation {
   ): ConfirmAccountDeletionPayload
 
   """
-  An `Organization` is a great way of sharing access to resources between
-  multiple users without compromising security. When you create an organization
-  you will have the 'owner' and 'billing contact' roles. You may invite other
-  users and redistribute these roles.
+  An `Organization` is a great way of sharing access to resources between multiple users without compromising security. When you create an organization you will have the 'owner' and 'billing contact' roles. You may invite other users and redistribute these roles.
   """
   createOrganization(
     """
@@ -470,8 +463,7 @@ type Mutation {
   ): DeleteUserEmailPayload
 
   """
-  If you've forgotten your password, give us one of your email addresses and
-  we'll send you a reset token. Note this only works if you have added an email address!
+  If you've forgotten your password, give us one of your email addresses and we'll send you a reset token. Note this only works if you have added an email address!
   """
   forgotPassword(
     """
@@ -481,12 +473,7 @@ type Mutation {
   ): ForgotPasswordPayload
 
   """
-  You may invite a user to your organization either by their username (only for
-  verified users) or by their email. If you opt to invite by email then an email
-  will be sent to this person containing a code that they need to accept the
-  invitation. If the person doesn't already have an account they will be
-  instructed to create one; their account need not have the email address that
-  you invited listed as the secret code is confirmation enough.
+  You may invite a user to your organization either by their username (only for verified users) or by their email. If you opt to invite by email then an email will be sent to this person containing a code that they need to accept the invitation. If the person doesn't already have an account they will be instructed to create one; their account need not have the email address that you invited listed as the secret code is confirmation enough.
   """
   inviteToOrganization(
     """
@@ -511,8 +498,7 @@ type Mutation {
   logout: LogoutPayload
 
   """
-  Your primary email is where we'll notify of account events; other emails may
-  be used for discovery or login. Use this when you're changing your email address.
+  Your primary email is where we'll notify of account events; other emails may be used for discovery or login. Use this when you're changing your email address.
   """
   makeEmailPrimary(
     """
@@ -550,9 +536,7 @@ type Mutation {
   ): RequestAccountDeletionPayload
 
   """
-  If you didn't receive the verification code for this email, we can resend it.
-  We silently cap the rate of resends on the backend, so calls to this function
-  may not result in another email being sent if it has been called recently.
+  If you didn't receive the verification code for this email, we can resend it. We silently cap the rate of resends on the backend, so calls to this function may not result in another email being sent if it has been called recently.
   """
   resendEmailVerificationCode(
     """
@@ -562,8 +546,7 @@ type Mutation {
   ): ResendEmailVerificationCodePayload
 
   """
-  After triggering forgotPassword, you'll be sent a reset token. Combine this
-  with your user ID and a new password to reset your password.
+  After triggering forgotPassword, you'll be sent a reset token. Combine this with your user ID and a new password to reset your password.
   """
   resetPassword(
     """
@@ -583,10 +566,7 @@ type Mutation {
   ): TransferOrganizationBillingContactPayload
 
   """
-  The owner of an `Organization` may use this mutation to transfer ownership to
-  a different organization member. Take care, if you assign ownership to someone
-  who cannot or will not access their account then you may need to contact
-  support to have ownership reassigned.
+  The owner of an `Organization` may use this mutation to transfer ownership to a different organization member. Take care, if you assign ownership to someone who cannot or will not access their account then you may need to contact support to have ownership reassigned.
   """
   transferOrganizationOwnership(
     """
@@ -630,8 +610,7 @@ type Mutation {
   ): UpdateUserPayload
 
   """
-  Once you have received a verification token for your email, you may call this
-  mutation with that token to make your email verified.
+  Once you have received a verification token for your email, you may call this mutation with that token to make your email verified.
   """
   verifyEmail(
     """
@@ -900,8 +879,7 @@ type Query implements Node {
   organizationBySlug(slug: String!): Organization
 
   """
-  Given an invitation UUID (and, if required, the code that was emailed to you),
-  retrieves the `Organization` that you were invited to.
+  Given an invitation UUID (and, if required, the code that was emailed to you), retrieves the `Organization` that you were invited to.
   """
   organizationForInvitation(code: String, invitationId: UUID!): Organization
   organizationMembership(rowId: UUID!): OrganizationMembership
@@ -1456,8 +1434,7 @@ type UserEmail implements Node {
   isPrimary: Boolean!
 
   """
-  True if the user has is_verified their email address (by clicking the link in
-  the email we sent them, or logging in with a social login provider), false otherwise.
+  True if the user has is_verified their email address (by clicking the link in the email we sent them, or logging in with a social login provider), false otherwise.
   """
   isVerified: Boolean!
   rowId: UUID!
